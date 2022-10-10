@@ -205,6 +205,7 @@ body{
     
 }
 .header__reg {
+    border-radius: 50%;
     &::before {
         content: "\e900";
     }
@@ -218,6 +219,24 @@ body{
 }
 .dark a {
     color: #d1cbcb !important;
+}
+//Форма поиска
+.header__srch {
+}
+.header__label {
+}
+.header__search-icon {
+}
+.header__search-clear{
+}
+.header__input {
+}
+//Hiden and show
+.hiden{
+    display: none;
+}
+.show{
+    display: block;
 }
 
 
