@@ -46,26 +46,28 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
 
         const header__search = document.querySelector('.header__search'),
             header__srch = document.querySelector('.header__srch'),
-            header__menu = document.querySelector('.header__menu');
+            header__menu = document.querySelector('.header__menu'),
+            header__input = document.querySelector('.header__input'),
+            header__search__clear = document.querySelector('.header__search-clear');
 
         header__search.addEventListener('click', () => {
-            header__srch.classList.add('show');
+            header__srch.classList.add('show');/* при клике добавляется класс */
+            header__input.focus();/* даем фокус инпуту */
 
-            if (header__srch.getAttribute('class') == 'header__srch hiden show') {
-                header__menu.classList.add('hiden');
-            }
+            header__srch.getAttribute('class') == 'header__srch hiden show' && header__menu.classList.add('hiden');/* если условие истино скрываем меню */
 
             document.addEventListener('click', e => {
-                if (e.target.getAttribute('class') == 'header__input' || e.target.getAttribute('class') == 'header__search') {
-                } else {
+                if (e.target.getAttribute('class') == 'header__input' || e.target.getAttribute('class') == 'header__search' || e.target.getAttribute('class') == 'header__search-icon' || e.target.getAttribute('class') == 'header__search-clear') {
+                } else {/* если одно из условий истино ничего не делаем, иначе удаляем классы */
                     header__srch.classList.remove('show');
                     header__menu.classList.remove('hiden');
                 }
             });
         });
 
-
-
+        header__search__clear.addEventListener('click', function () {
+            header__input.value = '';/* очишаем форму поиска при клике на икс */
+        });
 
     })();
 
