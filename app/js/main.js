@@ -4,14 +4,15 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
     //День - Ночь
     !(function () {/* создаем замыкание */
 
-        const headerDayNight = document.querySelector('.header__day-night');//получаем элемент Dom елемент
-        const html = document.querySelector('html');
+        const headerDayNight = document.querySelector('.header__day-night'),//получаем элемент Dom елемент
+            html = document.querySelector('html'),
+            header = document.querySelector('.header');
 
 
         headerDayNight.addEventListener('click', e => {/* навешиваем событие клик */
             e.preventDefault();/* отключаем стандартное поведение элемента */
             if (localStorage.getItem('theme') === 'dark') {/* проверяем наличиет ключа и значение */
-                localStorage.removeItem('theme');/* усли он есть удаляем */
+                localStorage.removeItem('theme');/* eсли он есть удаляем */
             } else {
                 localStorage.setItem('theme', 'dark');/* иначе добавляем */
             }
@@ -22,6 +23,7 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
         function addDarkClassHTML() {/* создали функцию */
             if (localStorage.getItem('theme') === 'dark') {/* если есть в локалсторидже ключ и значение */
                 html.classList.add('dark');/* в html добавляем класс dark */
+                header.classList.add('dark');/* в header добавляем класс dark */
 
                 headerDayNight.classList.add('header__dark-night');/* добавляем новый клас */
 
@@ -30,6 +32,7 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
 
             } else {/* если нету ключа и значения */
                 html.removeAttribute('class');/* удаляем атрибут класса у html, если удалить просто класс то у нас останется пустой класс висеть */
+                header.classList.remove('dark');
 
                 headerDayNight.classList.add('header__day-night');/* возврашаем старый класс */
                 headerDayNight.classList.remove('header__dark-night');/* удаляем добавленный новый класс */
@@ -52,7 +55,8 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
             header_nav = document.querySelector('.header-nav'),
             header__label = document.querySelector('.header__label');
 
-        header__search.addEventListener('click', () => {
+        header__search.addEventListener('click', e => {
+            e.preventDefault();
             header__srch.classList.add('show');/* при клике добавляется класс */
             header_nav.classList.add('header-nav--gridTemplateColumns3');/* при клике добавляется класс */
             header__label.classList.remove('header__labelHide');/* удаляем класс для скрытия формы поиска */
@@ -76,6 +80,47 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
 
         header__search__clear.addEventListener('click', function () {
             header__input.value = '';/* очишаем форму поиска при клике на икс */
+        });
+
+    })();
+
+
+    //Header тень при скроле
+    !(function () {
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            if (scrollY > 40) {
+                header.classList.add('header__boxShadow');
+            } else {
+                header.classList.remove('header__boxShadow');
+            }
+        });
+
+    })();
+
+
+    //Активная ссылка header menu
+    !(function () {
+
+        const header__li__a = document.querySelectorAll('.header__li a'),
+            header__a = document.querySelector('.header__li a');
+
+        header__a.classList.add('header__li--active');/* Ссылка активна по умолчанию */
+
+        header__li__a.forEach(elem => {
+            elem.addEventListener('click', function () {
+
+                if (!elem.classList.contains('header__li--active')) {/* если нету класса актив */
+
+                    header__li__a.forEach(elem => {
+                        elem.classList.remove('header__li--active');/* перебираем ссылки и удаляем классы */
+                    });
+
+                    this.classList.add('header__li--active');/* после добавляем класс актив на которой был клик */
+                }
+
+            });
         });
 
     })();

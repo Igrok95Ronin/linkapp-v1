@@ -23,7 +23,6 @@ li{
     padding: 0 12px;
 }
 body{
-    outline: 1px solid red;
     margin: auto;
     padding: 0;
     font-family: 'Roboto Regular',Helvetica,Arial,sans-serif;
@@ -35,12 +34,19 @@ body{
 //header
 .header {
     color: $colorMenuText;
+    background-color: #fff;
     font-family: "Google Sans",Arial,sans-serif;
     line-height: 1.75rem;
     font-size: 1.375rem;
     letter-spacing: 0;
     font-weight: 400;
     padding: 0 24px 0 24px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+.header__boxShadow {
+    box-shadow: 0 0 10px rgb(60 64 67 / 30%), 0 0 5px 2px rgb(60 64 67 / 15%);
 }
 .header__box {
 }
@@ -76,14 +82,19 @@ body{
     ul {
         display: flex;
         align-items:center;
+        gap: 20px;
     }
 }
 .header__li {
     a{
-        padding: 18px;
-        font-size: 16px;
-        color: $colorMenuText;
+        padding: 15px;
+        font-size: 14px;
+        color: $colorMenuText;    
     }
+}
+.header__li--active{
+        color: #01875f !important;
+        border-bottom: 3px solid #01875f;
 }
 .header__search-menu {
     display: flex;
@@ -353,4 +364,5 @@ body{
 
 main {
     height: 200vh;
+    margin-top: 70px;
 }
