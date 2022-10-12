@@ -50,6 +50,9 @@ body{
     grid-template-columns: repeat(2,1fr);
     position: relative;
 }
+.header-nav--gridTemplateColumns3{
+    grid-template-columns: 1fr 2fr 1fr;
+}
 .header__menu-inner{
     display: grid;
     grid-template-columns: 0.23fr 1.2fr;
@@ -243,6 +246,7 @@ body{
 }
 //Форма поиска
 .header__srch {
+    position: relative;
 }
 .header__label {
     position: absolute;
@@ -252,8 +256,43 @@ body{
     width: 100%;
     max-width: 720px;
     min-width: 285px;
-    
+    animation: headerLabel 1s ;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
+@keyframes headerLabel {
+    0%{
+        opacity: 0;
+        scale: (.9);
+    }
+    100%{
+        opacity: 1;
+        scale: (1);
+    }
+}
+.header__labelHide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 720px;
+    min-width: 285px;
+    animation: headerLabelHide .5s ;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+@keyframes headerLabelHide {
+    0%{
+        opacity: 1;
+        scale: (1);
+    }
+    100%{
+        opacity: 0;
+        scale: (.9);
+    }
+}
+
 .header__search-icon {
     position: relative;
     &::before {

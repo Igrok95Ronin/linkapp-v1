@@ -48,10 +48,14 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
             header__srch = document.querySelector('.header__srch'),
             header__menu = document.querySelector('.header__menu'),
             header__input = document.querySelector('.header__input'),
-            header__search__clear = document.querySelector('.header__search-clear');
+            header__search__clear = document.querySelector('.header__search-clear'),
+            header_nav = document.querySelector('.header-nav'),
+            header__label = document.querySelector('.header__label');
 
         header__search.addEventListener('click', () => {
             header__srch.classList.add('show');/* при клике добавляется класс */
+            header_nav.classList.add('header-nav--gridTemplateColumns3');/* при клике добавляется класс */
+            header__label.classList.remove('header__labelHide');/* удаляем класс для скрытия формы поиска */
             header__input.focus();/* даем фокус инпуту */
 
             header__srch.getAttribute('class') == 'header__srch hiden show' && header__menu.classList.add('hiden');/* если условие истино скрываем меню */
@@ -59,8 +63,13 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
             document.addEventListener('click', e => {
                 if (e.target.getAttribute('class') == 'header__input' || e.target.getAttribute('class') == 'header__search' || e.target.getAttribute('class') == 'header__search-icon' || e.target.getAttribute('class') == 'header__search-clear') {
                 } else {/* если одно из условий истино ничего не делаем, иначе удаляем классы */
-                    header__srch.classList.remove('show');
-                    header__menu.classList.remove('hiden');
+                    setTimeout(function () {
+                        header__srch.classList.remove('show');
+                        header__menu.classList.remove('hiden');
+                        header_nav.classList.remove('header-nav--gridTemplateColumns3');
+                        header__label.classList.remove('header__labelHide');
+                    }, 500);
+                    header__label.classList.add('header__labelHide');/* добавляем класс для плавного скрытия формы */
                 }
             });
         });
