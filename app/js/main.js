@@ -125,6 +125,22 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
 
     })();
 
+    //Бургер меню 
+    !(function () {
+        //Иконка
+        const header__menu__icon = document.querySelector('.header__menu-icon');
+
+        header__menu__icon.addEventListener('click', e => {
+            e.preventDefault();
+            header__menu__icon.classList.toggle('header__menu-icon-close');
+
+            header__menu__icon.addEventListener('blur', () => {
+                header__menu__icon.classList.remove('header__menu-icon-close');
+            });
+        });
+
+    })();
+
 
 
 

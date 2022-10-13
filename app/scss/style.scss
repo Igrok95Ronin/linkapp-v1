@@ -89,12 +89,13 @@ body{
     a{
         padding: 15px;
         font-size: 14px;
-        color: $colorMenuText;    
+        color: $colorMenuText;  
+        border-bottom: 3px solid transparent;  
     }
 }
 .header__li--active{
         color: #01875f !important;
-        border-bottom: 3px solid #01875f;
+        border-bottom: 3px solid #01875f !important;
 }
 .header__search-menu {
     display: flex;
@@ -109,11 +110,20 @@ body{
 .header__burger-menu {
 
 }
+.header__menu-icon-close{
+    position: relative;
+    .header__app-icon{
+        transition: 1s;
+            transform: perspective(600px) rotateY(180deg);
+        }
+    .header__close-icon{
+        transition: 1s;
+            transform: perspective(600px) rotateY(0deg);
+        }
+}
 .header__menu-icon{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 4px;
     width: 62px;
     height: 62px;
     padding: 16px 16px;
@@ -122,6 +132,41 @@ body{
     &:hover {
         background-color: #E0E5E9;
         border-radius: 50%;
+    }
+}
+.header__app-icon {
+    display: block;
+    position: relative;
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateY(0deg);
+    transition: 1s;
+    &::before{
+        content: '\e804';
+        position: absolute;
+        font-family: 'fontello';
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        transform: translate(-50%, -50%);
+        color: #000;
+    }
+}
+.header__close-icon {
+    display: block;
+    position: relative;
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateY(180deg);
+    transition: 1s;
+    &::before{
+        content: '\e803';
+        position: absolute;
+        font-family: 'fontello';
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        transform: translate(-50%, -50%);
+        font-size: 45px;
+        color: #000;
     }
 }
 .header__dot{
