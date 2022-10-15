@@ -126,15 +126,32 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
     })();
 
     //Бургер меню 
+
     !(function () {
         //Иконка
-        const header__menu__icon = document.querySelector('.header__menu-icon');
+        const header__menu__icon = document.querySelector('.header__menu-icon'),
+            header__burger_menu_list = document.querySelector('.header__burger-menu-list');
 
         header__menu__icon.addEventListener('click', e => {
-            e.preventDefault();
-            header__menu__icon.classList.toggle('header__menu-icon-close');
+            e.preventDefault();/* отменяем стандартное поведение */
+            header__menu__icon.classList.toggle('header__menu-icon-close');/* при клике добавляем или удаляем класс */
+            header__burger_menu_list.classList.toggle('header__burger-menu-list-show');
 
-            header__menu__icon.addEventListener('blur', () => {
+            document.addEventListener('click', e => {
+                if (e.target.classList.contains('header__btn-close')) {/* если нажали на Х закрываем меню */
+                    header__burger_menu_list.classList.remove('header__burger-menu-list-show');
+                }
+                if (e.target.classList.contains('header__burger-menu-link') || e.target.classList.contains('header__menu-icon')
+                    || e.target.classList.contains('header__app-icon') || e.target.classList.contains('header__burger-menu-list')
+                    || e.target.classList.contains('header__burger-menu-close')) {
+                    /* если кликнули на перечисленные элементы ничего не происодит, иначе закрываем меню */
+                } else {
+                    header__burger_menu_list.classList.remove('header__burger-menu-list-show');
+                }
+
+            });
+
+            header__menu__icon.addEventListener('blur', e => {/* при потере фокуса переворачиваем Х на меню */
                 header__menu__icon.classList.remove('header__menu-icon-close');
             });
         });

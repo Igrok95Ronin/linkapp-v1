@@ -177,12 +177,136 @@ body{
         color: #000;
     }
 }
-.header__dot{
-    background-color: #000;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+.header__burger-menu-list {
+    background-color: #F7F8FA;
+    max-width: 375px;
+    width: 100vh;
+    height: 100vh;
+    position: fixed;
+    left: -375px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 100;
+    transition: .5s;
 }
+.header__burger-menu-list-show{
+    left: 0px;
+}
+.header__burger-menu-close{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #E0E5E9; 
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.header__btn-close{
+    background-color: transparent;
+    border: none;
+    color: #5f6348;
+    display: inline-block;
+    transition: .5s;
+    &:hover {
+        color: red !important;
+    }
+    &::before {
+        content: '\e803';
+        font-family: 'fontello';
+        position: absolute;
+        font-size: 40px;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+    }
+}
+.header__burger-menu-li {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #E0E5E9;
+    .header__burger-menu-link{
+        padding-left: 65px;
+        height: 100%;
+        width: 100%;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 50px;
+        columns: #1C251A;
+        position: relative;
+        transition: .3s;
+        &:hover {
+            background-color: #01875f;
+            color: #fff;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            background: url(../../assets/img/graphic.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+    
+        }
+    }
+}
+.header__burger-menu-li:nth-child(2){
+    .header__burger-menu-link{
+        &::before {
+            background: url(../../assets/img/multimedia.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+.header__burger-menu-li:nth-child(3){
+    .header__burger-menu-link{
+        &::before {
+            background: url(../../assets/img/system.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+.header__burger-menu-li:nth-child(4){
+    .header__burger-menu-link{
+        &::before {
+            background: url(../../assets/img/Internet.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+.header__burger-menu-li:nth-child(5){
+    .header__burger-menu-link{
+        &::before {
+            background: url(../../assets/img/office.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+.header__burger-menu-li:nth-child(6){
+    .header__burger-menu-link{
+        &::before {
+            background: url(../../assets/img/safety.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+.header__burger-menu-li:nth-child(7){
+    .header__burger-menu-link{
+        &::before {
+            background: url(../../assets/img/games.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
 .header__search {
     position: relative;
     padding: 24px;
@@ -300,9 +424,12 @@ body{
 }
 //Стили для день ночь
 .dark {
-    background: #161D27;
+    background: #161D27 !important;
     body{
         color: #d1cbcb !important;
+        nav{
+            background: #161D27 !important; 
+        }
     }
 }
 .dark a {
