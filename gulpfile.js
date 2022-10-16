@@ -13,58 +13,58 @@ const babel = require('gulp-babel'); /* Переобразует js в стар�
 
 function styles() {/* работа со стилями */
     return gulp.src('app/scss/style.scss')/* откуда */
-    .pipe(sourcemaps.init())/* начала карты */
-    .pipe(sass().on('error', sass.logError))/* scss в css */
-    .pipe(autoprefixer({
-        overrideBrowserslist: ['last 10 version'],/* префиксы для старых версий последние 10 версий браузеров */
-        grid: true
-    }))
-    .pipe(cleanCss({compatibility: 'ie8'}))/* минификация css */
-    .pipe(concat('style.min.css'))/* меняем название на указанное */
-    .pipe(sourcemaps.write())/* конец карты */
-    .pipe(browserSync.stream())/* обновление бравзера */
-    .pipe(gulp.dest('assets/css/'))/* куда */
+        .pipe(sourcemaps.init())/* начала карты */
+        .pipe(sass().on('error', sass.logError))/* scss в css */
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 10 version'],/* префиксы для старых версий последние 10 версий браузеров */
+            grid: true
+        }))
+        .pipe(cleanCss({ compatibility: 'ie8' }))/* минификация css */
+        .pipe(concat('style.min.css'))/* меняем название на указанное */
+        .pipe(sourcemaps.write())/* конец карты */
+        .pipe(browserSync.stream())/* обновление бравзера */
+        .pipe(gulp.dest('assets/css/'))/* куда */
 }
 
 function scripts() {
     return gulp.src('app/js/*.js')
-    .pipe(sourcemaps.init())/* начала карты */
-    .pipe(babel({
-        presets: ['@babel/env']/* для поддержки старых версий js этот пресет необходимо отдельно
+        .pipe(sourcemaps.init())/* начала карты */
+        .pipe(babel({
+            presets: ['@babel/env']/* для поддержки старых версий js этот пресет необходимо отдельно
         установить npm i -D @babel/preset-env */
-    }))
-    .pipe(concat('main.min.js'))
-    .pipe(uglify())/* минификация js */
-    .pipe(sourcemaps.write())/* конец карты */
-    .pipe(browserSync.stream())/* обновление бравзера */
-    .pipe(gulp.dest('assets/js/'))
+        }))
+        .pipe(concat('main.min.js'))
+        .pipe(uglify())/* минификация js */
+        .pipe(sourcemaps.write())/* конец карты */
+        .pipe(browserSync.stream())/* обновление бравзера */
+        .pipe(gulp.dest('assets/js/'))
 }
 
 function img() {
     return gulp.src('app/img/*')
-    .pipe(newer('assets/img'))/* путь назначения  отслеживание новых изображений*/
-    .pipe(imagemin(/* минификация */
-    [
-        imagemin.gifsicle({interlaced: true}),
-        imagemin.mozjpeg({quality: 75, progressive: true}),
-        imagemin.optipng({optimizationLevel: 5}),
-        imagemin.svgo({
-            plugins: [
-                {removeViewBox: true},
-                {cleanupIDs: false}
+        .pipe(newer('assets/img/'))/* путь назначения  отслеживание новых изображений*/
+        .pipe(imagemin(/* минификация */
+            [
+                imagemin.gifsicle({ interlaced: true }),
+                imagemin.mozjpeg({ quality: 75, progressive: true }),
+                imagemin.optipng({ optimizationLevel: 5 }),
+                imagemin.svgo({
+                    plugins: [
+                        { removeViewBox: true },
+                        { cleanupIDs: false }
+                    ]
+                })
             ]
-        })
-    ]
-))
-    .pipe(browserSync.stream())/* обновление бразуреа */
-    .pipe(gulp.dest('assets/img'))/* куда */
+        ))
+        .pipe(browserSync.stream())/* обновление бразуреа */
+        .pipe(gulp.dest('assets/img/'))/* куда */
 }
 
 function watch() {/* отслеживает изминения */
     browserSync.init({/* инициализация browserSync */
-    server: {
-        baseDir: "./"/* дириктория где находиться проект */
-    }
+        server: {
+            baseDir: "./"/* дириктория где находиться проект */
+        }
     })
 
     gulp.watch(['index.html']).on('change', browserSync.reload);/* обновляет браузер при изминении index.html */

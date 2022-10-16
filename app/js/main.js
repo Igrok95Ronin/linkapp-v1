@@ -159,10 +159,43 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
     })();
 
 
-
-
-
-
+    // Slider
+    $(document).ready(function () {
+        $('.slider').slick({
+            lazyLoad: 'ondemand',/* 'ondemand' or 'progressive' */
+            slidesToShow: 8,
+            slidesToScroll: 6,
+            infinite: false,
+            rows: 2,/* задает количество рядов */
+            responsive: [/* отзывчивый */
+                {
+                    breakpoint: 1300,
+                    settings: {
+                        slidesToShow: 7,
+                        slidesToScroll: 2,
+                        infinite: false,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    });
 
 
 

@@ -4,6 +4,110 @@
 //Vars
 $colorMenuText: #5F6348;
 
+//mexin
+@mixin title {
+    padding: 44px 0 20px 12px;
+    font-size: 22px;
+    font-family: "Google Sans",Arial,sans-serif;
+}
+@mixin slider {
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    .slick-prev,
+    .slick-next{
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        z-index: 100;
+        font-size: 0;
+    }
+    .slick-next{
+        right: 0;
+        &::before {
+            content: '\e809' !important;
+        }
+    }
+    &:hover {
+        .slick-prev,
+        .slick-next {
+            font-size: 0;
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+            transition: .2s;
+            &::before {
+                content: '\e808';
+                font-family: 'fontello';
+                position: absolute;
+                font-size: 35px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:hover {
+                box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+                background-color: #edf5fd;
+            }
+        }
+    }
+}
+@mixin slider-item {
+    width: 164.52px;
+    min-height: 241.52px;
+    padding: 12px;
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: #202124;
+    transition: .2s;
+    &:hover {
+        background-color: #f5f5f5;
+        border-radius: 10px;
+    }
+}
+@mixin slider-img {
+    width: 140.52px;
+    height: 140.52px;
+    margin: 0 0 12px;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20%;
+        border-width: 0;
+        box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    }
+}
+@mixin slider-name {
+    fill: rgb(32,33,36);
+    stop-color: rgb(32,33,36);
+    font-size: 14px ;
+    font-weight: 400;
+    letter-spacing: .0178571429em;
+    line-height: 1.25rem;
+}
+@mixin slider-rating {
+    font-size: 14px;
+    margin-top: 3px;
+    span{
+        position: relative;
+        margin-left: 3px;
+        &::before {
+            content: '\e801';
+            font-family: 'fontello';
+            position: absolute;
+            width: 13px;
+            height: 20px;
+            top: 50%;
+            left: 0;
+            font-size: 12px;
+            transform: translateY(-35%);
+        }
+    }
+}
+
 *{
     box-sizing: border-box;
 }
@@ -45,6 +149,7 @@ body{
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 999;
 }
 .header__boxShadow {
     box-shadow: 0 0 10px rgb(60 64 67 / 30%), 0 0 5px 2px rgb(60 64 67 / 15%);
@@ -186,7 +291,7 @@ body{
     left: -375px;
     overflow-x: hidden;
     overflow-y: auto;
-    z-index: 100;
+    z-index: 10000;
     transition: .5s;
 }
 .header__burger-menu-list-show{
@@ -430,6 +535,13 @@ body{
         nav{
             background: #161D27 !important; 
         }
+        .desctiptionSite{
+            background: #161D27 !important; 
+        }
+        .slick-prev,
+        .slick-next {
+            color: #fbab18;
+        }
     }
 }
 .dark a {
@@ -537,12 +649,54 @@ body{
     display: block;
 }
 
+//desctiptionSite
+.desctiptionSite {
+    text-align: center;
+    background-color: #f7f8fa;
+    padding: 5px 0;
+}
+.desctiptionSite__title {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 29px;
+}
+.desctiptionSite__dscr {
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+//novelties новинки
+.novelties {
+}
+.novelties__title {
+    @include title();
+}
+.novelties__box {
+}
+.slider {
+    @include slider();
+}
+.novelties__slider-item {
+    @include slider-item();
+}
+.novelties__img {
+    @include slider-img();
+}
+.novelties__name {
+    @include slider-name();
+}
+.novelties__rating {
+    @include slider-rating();
+}
+
 
 
 
 
 
 main {
-    height: 200vh;
+    min-height: 200vh;
     margin-top: 70px;
 }
+
+
