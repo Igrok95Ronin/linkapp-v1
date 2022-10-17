@@ -699,6 +699,7 @@ body{
     text-align: center;
     background-color: #f7f8fa;
     padding: 5px 0;
+    margin-top: 64px;
 }
 .desctiptionSite__title {
     font-weight: 600;
@@ -756,14 +757,26 @@ body{
 .popular__rating {
     @include slider-rating();
 }
-
-
-
-
-
-main {
-    min-height: 200vh;
-    margin-top: 70px;
+//recommended
+.recommended {
 }
-
-
+.recommended__title {
+    @include title();
+}
+.recommended__box {
+}
+.slider {
+    @include slider();
+}
+.recommended__slider-item {
+    @include slider-item();
+}
+.recommended__img {
+    @include slider-img();
+}
+.recommended__name {
+    @include slider-name();
+}
+.recommended__rating {
+    @include slider-rating();
+}
