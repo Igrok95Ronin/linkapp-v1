@@ -131,7 +131,7 @@ body{
     padding: 0;
     font-family: 'Roboto Regular',Helvetica,Arial,sans-serif;
     font-size: 16px;
-    max-width: 1920px;
+    max-width: 1920px !important;
     min-width: 320px;
     color: #202124;
 }
@@ -147,8 +147,8 @@ body{
     padding: 0 24px 0 24px;
     position: fixed;
     width: 100%;
+    max-width: 1920px;
     top: 0;
-    left: 0;
     z-index: 999;
 }
 .header__boxShadow {
@@ -641,6 +641,51 @@ body{
     font-size: 16px;
     padding: 0 50px 0 50px;
 }
+//btnFixed
+.btnFixed__box {
+    display: flex;
+    justify-content:flex-end;
+    padding-right: 40px;
+}
+.btnFixed__btnTopFixedNone{
+}
+.btnFixed__btnTopFixed {
+    display: block;
+    color: #ffffff;
+    background-color: #ed1c94;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    z-index: 999;
+    bottom: 40px;
+    animation-name: btn;
+    animation-duration: 1s;
+    transition: .45s all ease-in-out;
+    &:hover {
+        color: #ffffff;
+        background-color: #981df0;
+        text-decoration: none;
+    }
+    &::before {
+        content: '\e807';
+        font-family: 'fontello';
+        position: absolute;
+    }
+}
+@keyframes  btn{
+    from {
+        opacity: 0;
+        bottom: -50px;
+    }
+    to {
+        opacity: 1;
+        bottom: 40px;
+    }
+} 
 //Hiden and show
 .hiden{
     display: none;
@@ -688,7 +733,29 @@ body{
 .novelties__rating {
     @include slider-rating();
 }
-
+//popular
+.popular {
+}
+.popular__title {
+    @include title();
+}
+.popular__box {
+}
+.slider {
+    @include slider();
+}
+.popular__slider-item {
+    @include slider-item();
+}
+.popular__img {
+    @include slider-img();
+}
+.popular__name {
+    @include slider-name();
+}
+.popular__rating {
+    @include slider-rating();
+}
 
 
 

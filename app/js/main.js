@@ -87,13 +87,17 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
 
     //Header тень при скроле
     !(function () {
-        const header = document.querySelector('.header');
-
+        const header = document.querySelector('.header'),
+            btnFixed__btnTopFixedNone = document.querySelector('.btnFixed__btnTopFixedNone');
         window.addEventListener('scroll', () => {
             if (scrollY > 40) {
                 header.classList.add('header__boxShadow');
+                btnFixed__btnTopFixedNone.classList.add('btnFixed__btnTopFixed');
+                btnFixed__btnTopFixedNone.classList.remove('btnFixed__btnTopFixedNone');
             } else {
                 header.classList.remove('header__boxShadow');
+                btnFixed__btnTopFixedNone.classList.remove('btnFixed__btnTopFixed');
+                btnFixed__btnTopFixedNone.classList.add('btnFixed__btnTopFixedNone');
             }
         });
 
@@ -163,16 +167,16 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
     $(document).ready(function () {
         $('.slider').slick({
             lazyLoad: 'ondemand',/* 'ondemand' or 'progressive' */
-            slidesToShow: 8,
-            slidesToScroll: 6,
-            infinite: false,
+            slidesToShow: 8,/* по скольку показывать */
+            slidesToScroll: 6,/* по сколькуо листать */
+            infinite: false,/* бесконечная прокрутка отключена */
             rows: 2,/* задает количество рядов */
             responsive: [/* отзывчивый */
                 {
                     breakpoint: 1300,
                     settings: {
                         slidesToShow: 7,
-                        slidesToScroll: 2,
+                        slidesToScroll: 5,
                         infinite: false,
                     }
                 },
@@ -190,9 +194,6 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
                         slidesToScroll: 1
                     }
                 }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
             ]
         });
     });
