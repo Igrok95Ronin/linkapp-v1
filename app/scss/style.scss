@@ -780,3 +780,100 @@ body{
 .recommended__rating {
     @include slider-rating();
 }
+//graphic
+.graphic {
+}
+.graphic__title {
+    @include title();
+}
+.graphic__box {
+}
+.slider {
+    @include slider();
+}
+.graphic__slider-item {
+    @include slider-item();
+}
+.graphic__img {
+    @include slider-img();
+}
+.graphic__name {
+    @include slider-name();
+}
+.graphic__rating {
+    @include slider-rating();
+}
+//
+.multimedia {
+}
+.multimedia__title {
+    @include title();
+}
+.multimedia__box {
+}
+.slider {
+    @include slider();
+}
+.multimedia__slider-item {
+    @include slider-item();
+}
+.multimedia__img {
+    @include slider-img();
+}
+.multimedia__name {
+    @include slider-name();
+}
+.multimedia__rating {
+    @include slider-rating();
+}
+//system
+.system {
+}
+.system__title {
+    @include title();
+}
+.system__box {
+}
+.slider {
+    @include slider();
+}
+.system__slider-item {
+    @include slider-item();
+}
+.system__img {
+    @include slider-img();
+}
+.system__name {
+    @include slider-name();
+}
+.system__rating {
+    @include slider-rating();
+}
+//internet
+.internet {}
+
+.internet__title {
+    @include title();
+}
+
+.internet__box {}
+
+.slider {
+    @include slider();
+}
+
+.internet__slider-item {
+    @include slider-item();
+}
+
+.internet__img {
+    @include slider-img();
+}
+
+.internet__name {
+    @include slider-name();
+}
+
+.internet__rating {
+    @include slider-rating();
+}

@@ -169,15 +169,32 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
         const anchors = document.querySelectorAll('a[href*="#"]');
 
         for (let anchor of anchors) {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', e => {
                 e.preventDefault();
                 const blockId = anchor.getAttribute('href');
                 document.querySelector('' + blockId).scrollIntoView({
                     behavior: 'smooth',
-                    block: 'start'
+                    block: 'center'
                 });
             });
         }
+
+    })();
+
+    //Плавная прокрутка для ссылки Вверх
+    !(function () {
+
+        const anchors = document.querySelector('a[href="#up"]');
+
+        anchors.addEventListener('click', e => {
+            e.preventDefault();
+            const blockId = anchors.getAttribute('href');
+            document.querySelector('' + blockId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
 
     })();
 
