@@ -199,7 +199,6 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
     })();
 
 
-
     // Slider
     $(document).ready(function () {
         $('.slider').slick({

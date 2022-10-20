@@ -877,3 +877,87 @@ body{
 .internet__rating {
     @include slider-rating();
 }
+//офис
+.office {}
+
+.office__title {
+    @include title();
+}
+
+.office__box {}
+
+.slider {
+    @include slider();
+}
+
+.office__slider-item {
+    @include slider-item();
+}
+
+.office__img {
+    @include slider-img();
+}
+
+.office__name {
+    @include slider-name();
+}
+
+.office__rating {
+    @include slider-rating();
+}
+//safety
+.safety {}
+
+.safety__title {
+    @include title();
+}
+
+.safety__box {}
+
+.slider {
+    @include slider();
+}
+
+.safety__slider-item {
+    @include slider-item();
+}
+
+.safety__img {
+    @include slider-img();
+}
+
+.safety__name {
+    @include slider-name();
+}
+
+.safety__rating {
+    @include slider-rating();
+}
+//forGames
+.forGames {}
+
+.forGames__title {
+    @include title();
+}
+
+.forGames__box {}
+
+.slider {
+    @include slider();
+}
+
+.forGames__slider-item {
+    @include slider-item();
+}
+
+.forGames__img {
+    @include slider-img();
+}
+
+.forGames__name {
+    @include slider-name();
+}
+
+.forGames__rating {
+    @include slider-rating();
+}
