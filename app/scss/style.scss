@@ -169,7 +169,8 @@ body{
     display: grid;
     grid-template-columns: 0.23fr 1.2fr;
 }
-.header__logo {
+.header__logo,
+.footer__logo {
     display: flex;
     align-items: center;
     margin: 0 14px 0px 0;
@@ -177,14 +178,18 @@ body{
     padding: 5px 0;
     width: 212px;
 }
-.header__logo-svg {
+.header__logo-svg,
+.footer__logo-svg {
     margin: 0 8px 0 0;
     width: 45px;
     height: 45px;
 }
-.header__logo-txt {
+.header__logo-txt,
+.footer__logo-txt {
+    font-size: 22px;
 }
-.header__clickDownloadUse{
+.header__clickDownloadUse,
+.footer__clickDownloadUse{
     font-size: 10px;
     display: block;
     line-height: 10px;
@@ -541,6 +546,9 @@ body{
         .slick-prev,
         .slick-next {
             color: #fbab18;
+        }
+        .footer {
+            background-color: #161D27 !important;
         }
     }
 }
@@ -961,3 +969,49 @@ body{
 .forGames__rating {
     @include slider-rating();
 }
+
+//footer
+.footer {
+    background-color:  #f7f8fa ;
+    border-top: 1px solid #E0E5E9;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-family: "Google Sans", Arial, sans-serif;
+    font-size: 14px;
+}
+
+.footer__box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.footer__left {}
+
+.footer__logo {}
+
+.footer__logo-svg {}
+
+.footer__logo-txt {
+}
+
+.footer__clickDownloadUse {}
+
+.footer__title {
+    margin: 15px 0 30px;
+    line-height: 21px;
+}
+
+.footer__date {}
+
+.footer__center {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer__link {
+    color: #5f6368;
+}
+
+.footer__right {}
