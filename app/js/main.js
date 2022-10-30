@@ -235,6 +235,42 @@ window.addEventListener('DOMContentLoaded', function () {/* JS сработае�
     });
 
 
+    //Slider-view
+    $(document).ready(function () {
+        $('.slider-view').slick({
+            lazyLoad: 'ondemand',/* 'ondemand' or 'progressive' */
+            slidesToShow: 5,/* по скольку показывать */
+            slidesToScroll: 4,/* по сколькуо листать */
+            infinite: false,/* бесконечная прокрутка отключена */
+            rows: 1,/* задает количество рядов */
+            responsive: [/* отзывчивый */
+                {
+                    breakpoint: 1300,
+                    settings: {
+                        slidesToShow: 7,
+                        slidesToScroll: 5,
+                        infinite: false,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+
+
 
 
 
